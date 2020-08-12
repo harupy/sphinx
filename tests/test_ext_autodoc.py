@@ -1287,6 +1287,12 @@ def test_automethod_for_decorated(app):
 
 
 @pytest.mark.sphinx('html', testroot='ext-autodoc')
+def test_decorated_class(app):
+    print(do_autodoc(app, 'class', 'target.decorator.Bar2'))
+    raise Exception  # fails this test to see stdout
+
+
+@pytest.mark.sphinx('html', testroot='ext-autodoc')
 def test_abstractmethods(app):
     options = {"members": None,
                "undoc-members": None}

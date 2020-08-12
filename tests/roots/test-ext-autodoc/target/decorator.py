@@ -29,3 +29,27 @@ class Bar:
     @deco1
     def meth(self, name=None, age=None):
         pass
+
+
+
+def deco(cls):
+    _original_init = cls.__init__
+
+    @wraps(_original_init)
+    def wrapped(self, *args, **kwargs):
+        _original_init(self, *args, **kwargs)
+
+    cls.__init__ = wrapped
+    return cls
+
+@deco
+class Bar2:
+    def __init__(self, name=None, age=None):
+        pass
+
+
+@deco
+class Bar3:
+    def __init__(self, name=None, age=None):
+        # type: (str, int) -> None
+        pass
