@@ -355,6 +355,7 @@ Doctest summary
             logger.info(docname)
             # no need to resolve the doctree
             doctree = self.env.get_doctree(docname)
+            logger.info(doctree)
             self.test_doc(docname, doctree)
 
     def get_filename_for_node(self, node: Node, docname: str) -> str:
