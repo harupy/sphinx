@@ -350,7 +350,9 @@ Doctest summary
             build_docnames = sorted(self.env.all_docs)
 
         logger.info(bold('running tests...'))
+        logger.info(build_docnames)
         for docname in build_docnames:
+            logger.info(docname)
             # no need to resolve the doctree
             doctree = self.env.get_doctree(docname)
             self.test_doc(docname, doctree)
